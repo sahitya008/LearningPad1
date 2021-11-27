@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Armstrong Number</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark text-light">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <h4> Armstrong number </h4>
+  </div>
+  <div class="mr-2">
+    // Java program to determine whether the number is <br>
+    // Armstrong number or not<br>
+    <code>
+public class Armstrong<br>
+{<br>
+	/* Function to calculate x raised to the	power y */ <br>
+	int power(int x, long y)<br>
+	{<br>
+		if( y == 0)<br>
+			return 1;<br>
+		if (y%2 == 0)<br>
+			return power(x, y/2)*power(x, y/2); <br>
+		return x*power(x, y/2)*power(x, y/2); <br>
+	}
+
+	/* Function to calculate order of the number */
+	int order(int x)
+	{
+		int n = 0; <br>
+		while (x != 0)
+		{   
+			n++; <br>
+			x = x/10; <br>
+		}<br>
+		return n; <br>
+	}
+
+	// Function to check whether the given number is<br>
+	// Armstrong number or not<br>
+	boolean isArmstrong (int x)<br>
+	{<br>
+		// Calling order function<br>
+		int n = order(x); <br>
+		int temp=x, sum=0; <br>
+		while (temp!=0)<br>
+		{<br>
+			int r = temp%10; <br>
+			sum = sum + power(r,n); <br>
+			temp = temp/10; <br>
+		}<br>
+
+		// If satisfies Armstrong condition<br>
+		return (sum == x); <br>
+	}
+
+	// Driver Program<br>
+	public static void main(String[] args)<br>
+	{
+		Armstrong ob = new Armstrong(); <br>
+		int x = 153; <br>
+		System.out.println(ob.isArmstrong(x)); <br>
+		x = 1253; <br>
+		System.out.println(ob.isArmstrong(x)); <br>
+	}
+}
+</code>
+  </div>
+  <hr>
+  <h6 class="text-center"> Ends Credits and Credentials </h6>
+</body>
+
+</html>
